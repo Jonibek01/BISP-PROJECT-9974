@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - IdealUy.uz</title>
+    <!-- Add Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="sticky-top">
+        <div class="top-bar bg-primary text-white py-2">
+            <div class="container d-flex justify-content-between align-items-center">
+                <div>
+                    <span class="me-3"><i class="fas fa-phone-alt me-1"></i> +998917919999</span>
+                    <span><i class="fas fa-envelope me-1"></i> jonibektoirov@gmail.com</span>
+                </div>
+                <div>
+                    <a href="login.html" class="text-white me-3"><i class="fas fa-user me-1"></i> Shaxsiy kabinet</a>
+                    <a href="#" class="text-white me-3">Aksiyalar</a>
+                    <a href="#" class="text-white me-3">Bonuslar</a>
+                    <a href="#" class="text-white me-3">Garantiya va Vozvrat</a>
+                    <a href="#" class="text-white me-3">Loyiha haqida</a>
+                    <a href="#" class="text-white">Dostavka xizmatlari</a>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <h1 class="m-0">IdealUy.uz</h1>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">BOSH SAHIFA</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="product-listing.html">Maishiy texnika</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="product-listing.html">Oshxona buyumlari</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Checkout Section -->
+    <section class="checkout-section py-5">
+        <div class="container">
+            <h1 class="mb-4">Shipping & Payments</h1>
+            
+            <div class="row">
+                <div class="col-lg-8 mb-4">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h5 class="mb-0">Shipping</h5>
+                        </div>
+                        <div class="card-body">
+                            <p>Please choose a shipping company based on your region</p>
+                            
+                            <div class="form-check mb-3 border p-3 rounded">
+                                <input class="form-check-input" type="radio" name="shippingMethod" id="shipping1" checked>
+                                <label class="form-check-label" for="shipping1">
+                                    <div class="d-flex justify-content-between">
+                                        <strong>AUSFF</strong>
+                                        <span>Free</span>
+                                    </div>
+                                    <div class="text-muted">
+                                        <div>Delivery time: 14-21 days</div>
+                                        <div>Insurance: Unavailable</div>
+                                    </div>
+                                </label>
+                            </div>
+                            
+                            <div class="form-check mb-3 border p-3 rounded">
+                                <input class="form-check-input" type="radio" name="shippingMethod" id="shipping2">
+                                <label class="form-check-label" for="shipping2">
+                                    <div class="d-flex justify-content-between">
+                                        <strong>RaceCouriers</strong>
+                                        <span>₹10</span>
+                                    </div>
+                                    <div class="text-muted">
+                                        <div>Delivery time: 14-21 days</div>
+                                        <div>Insurance: Available</div>
+                                    </div>
+                                </label>
+                            </div>
+                            
+                            <div class="form-check mb-3 border p-3 rounded">
+                                <input class="form-check-input" type="radio" name="shippingMethod" id="shipping3">
+                                <label class="form-check-label" for="shipping3">
+                                    <div class="d-flex justify-content-between">
+                                        <strong>TranscoCargo</strong>
+                                        <span>₹12</span>
+                                    </div>
+                                    <div class="text-muted">
+                                        <div>Delivery time: 14-21 days</div>
+                                        <div>Insurance: Available</div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">Payment</h5>
+                        </div>
+                        <div class="card-body">
+                            <p>Please choose a payment method</p>
+                            
+                            <div class="form-check mb-3 border p-3 rounded">
+                                <input class="form-check-input" type="radio" name="paymentMethod" id="payment1" checked>
+                                <label class="form-check-label" for="payment1">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fab fa-paypal fs-4 me-2"></i>
+                                        <strong>Paypal</strong>
+                                    </div>
+                                    <div class="text-muted mt-2">
+                                        PayPal is a trusted online payment platform that allows individuals and businesses to securely send and receive money electronically.
+                                    </div>
+                                </label>
+                            </div>
+                            
+                            <div class="form-check mb-3 border p-3 rounded">
+                                <input class="form-check-input" type="radio" name="paymentMethod" id="payment2">
+                                <label class="form-check-label" for="payment2">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fab fa-cc-mastercard fs-4 me-2"></i>
+                                        <strong>Mastercard</strong>
+                                    </div>
+                                    <div class="text-muted mt-2">
+                                        PayPal is a trusted online payment platform that allows individuals and businesses to securely send and receive money electronically. 
+                                    </div>
+                                </label>
+                            </div>
+                            
+                            <div class="form-check mb-3 border p-3 rounded">
+                                <input class="form-check-input" type="radio" name="paymentMethod" id="payment3">
+                                <label class="form-check-label" for="payment3">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fab fa-bitcoin fs-4 me-2"></i>
+                                        <strong>Bitcoin</strong>
+                                    </div>
+                                    <div class="text-muted mt-2">
+                                        PayPal is a trusted online payment platform that allows individuals and businesses to securely send and receive money electronically. 
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">Order Summary</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Price</span>
+                                <span id="checkout-subtotal">₹99.23</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Shipping</span>
+                                <span id="checkout-shipping">₹0</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Tax</span>
+                                <span id="checkout-tax">₹0</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Discount price</span>
+                                <span id="checkout-discount">₹47.10</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Pack in a Gift Box</span>
+                                <span id="checkout-giftbox">₹10.90</span>
+                            </div>
+                            <hr>
+                            <div class="d-flex justify-content-between mb-3">
+                                <strong>Total Price</strong>
+                                <strong id="checkout-total">₹110.13</strong>
+                            </div>
+                            <div class="d-grid">
+                                <button id="placeOrderBtn" class="btn btn-primary">NEXT</button>
+                            </div>
+                            <div class="text-center mt-3">
+                                <p class="mb-0">100% Guarantee Safe Checkout</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-5 pb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <h3 class="mb-4">IdealUy.uz</h3>
+                    <p><i class="fas fa-phone-alt me-2"></i> +998917919999</p>
+                    <p><i class="fas fa-phone-alt me-2"></i> +998917111111</p>
+                    <p><i class="fas fa-envelope me-2"></i> jonibektoirov@gmail.com</p>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5 class="mb-4">Xaridga oid</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white">Shaxsiy kabinet</a></li>
+                        <li class="mb-2"><a href="#" class="text-white">Sizning xaridlaringiz</a></li>
+                        <li class="mb-2"><a href="#" class="text-white">Taqqoslangan buyumlar</a></li>
+                        <li class="mb-2"><a href="#" class="text-white">Istaklar roʻyxati buyumlari</a></li>
+                        <li class="mb-2"><a href="#" class="text-white">Yetkazib berish detali</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5 class="mb-4">Havolalar</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white">Yangiliklar</a></li>
+                        <li class="mb-2"><a href="#" class="text-white">Sovg'alar markazi</a></li>
+                        <li class="mb-2"><a href="#" class="text-white">Sotib olish bo'yicha qo'llanmalar</a></li>
+                        <li class="mb-2"><a href="#" class="text-white">Yangi mijozlarga oid</a></li>
+                        <li class="mb-2"><a href="#" class="text-white">Tozalash</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5 class="mb-4">FROM THE BLOG</h5>
+                    <div class="mb-3">
+                        <p class="mb-1">Bayram uchun ko'plab chegirmalar e'lon qilindi</p>
+                        <p class="small text-muted">14 Jan</p>
+                    </div>
+                    <div class="mb-3">
+                        <p class="mb-1">Ko'plab mahsulotlar xolati yangilandi va qo'shimcha xususiyatlar qo'shildi</p>
+                        <p class="small text-muted">27 Dec</p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-top border-secondary pt-3 mt-3">
+                <p class="text-center">IdealUy.uz 2024-2025 © – Barcha xuquqlar ximoyalangan</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahsulot tafsilotlari - IdealUy.uz</title>
+
+    <!-- Add Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="sticky-top">
+        <div class="top-bar bg-primary text-white py-2">
+            <div class="container d-flex justify-content-between align-items-center">
+                <div>
+                    <span class="me-3"><i class="fas fa-phone-alt me-1"></i> +998917919999</span>
+                    <span><i class="fas fa-envelope me-1"></i> jonibektoirov@gmail.com</span>
+                </div>
+                <div>
+                    <a href="login.html" class="text-white me-3"><i class="fas fa-user me-1"></i> Shaxsiy kabinet</a>
+                    <a href="#" class="text-white me-3">Aksiyalar</a>
+                    <a href="#" class="text-white me-3">Bonuslar</a>
+                    <a href="#" class="text-white me-3">Garantiya va Vozvrat</a>
+                    <a href="#" class="text-white me-3">Loyiha haqida</a>
+                    <a href="#" class="text-white">Dostavka xizmatlari</a>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <h1 class="m-0">IdealUy.uz</h1>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">BOSH SAHIFA</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="product-listing.html">Maishiy texnika</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="product-listing.html">Oshxona buyumlari</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">TOP BRENDLAR</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">MAGAZINLAR</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex align-items-center">
+                        <div class="search-box me-3">
+                            <input type="text" class="form-control" placeholder="Maishiy texnika qidiring...">
+                            <button class="btn btn-primary"><i class="fas fa-search"></i></button>
+                        </div>
+                        <a href="cart.html" class="position-relative me-3">
+                            <i class="fas fa-shopping-cart fs-5"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-count">0</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="container mt-3">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Bosh sahifa</a></li>
+                <li class="breadcrumb-item"><a href="product-listing.html">Maishiy texnika</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Green 2-seater velvet sofa</li>
+            </ol>
+        </nav>
+    </div>
+
+    <!-- Product Detail -->
+    <section class="product-detail py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Product Images -->
+                <div class="col-md-6 mb-4">
+                    <div class="product-images">
+                        <div class="main-image mb-3">
+                            <img src="https://via.placeholder.com/600x400" alt="Green 2-seater velvet sofa" class="img-fluid rounded">
+                        </div>
+                        <div class="thumbnails d-flex">
+                            <div class="thumbnail me-2 active">
+                                <img src="https://via.placeholder.com/100x100" alt="Thumbnail 1" class="img-fluid rounded">
+                            </div>
+                            <div class="thumbnail me-2">
+                                <img src="https://via.placeholder.com/100x100" alt="Thumbnail 2" class="img-fluid rounded">
+                            </div>
+                            <div class="thumbnail me-2">
+                                <img src="https://via.placeholder.com/100x100" alt="Thumbnail 3" class="img-fluid rounded">
+                            </div>
+                            <div class="thumbnail">
+                                <img src="https://via.placeholder.com/100x100" alt="Thumbnail 4" class="img-fluid rounded">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Info -->
+                <div class="col-md-6">
+                    <div class="product-info">
+                        <h1 class="mb-3">Green 2-seater velvet sofa</h1>
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="ratings me-2">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star-half-alt text-warning"></i>
+                            </div>
+                            <span class="text-muted">Read reviews (267)</span>
+                        </div>
+                        <h2 class="price mb-4">$299</h2>
+                        <p class="mb-4">Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit, Sed Do Eiusmod Tempor Incididunt Ut Labore Et Dolore Magna Aliqua.</p>
+                        
+                        <div class="mb-4">
+                            <label class="form-label">Colour:</label>
+                            <div class="d-flex">
+                                <div class="color-option me-2 active" style="background-color: green;"></div>
+                                <div class="color-option me-2" style="background-color: blue;"></div>
+                                <div class="color-option me-2" style="background-color: red;"></div>
+                                <div class="color-option" style="background-color: gray;"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="form-label">Quantity:</label>
+                            <div class="quantity-selector d-flex align-items-center">
+                                <button class="btn btn-outline-secondary quantity-btn" id="decreaseQuantity">-</button>
+                                <input type="number" class="form-control text-center mx-2" value="1" min="1" id="quantity">
+                                <button class="btn btn-outline-secondary quantity-btn" id="increaseQuantity">+</button>
+                            </div>
+                        </div>
+                        
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-primary add-to-cart" data-id="201" data-name="Green 2-seater velvet sofa" data-price="299" data-image="https://via.placeholder.com/600x400">
+                                Add to Bag
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product Description -->
+            <div class="row mt-5">
+                <div class="col-12">
+                    <ul class="nav nav-tabs" id="productTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description" type="button" role="tab" aria-controls="description" aria-selected="true">Description</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="details-tab" data-bs-toggle="tab" data-bs-target="#details" type="button" role="tab" aria-controls="details" aria-selected="false">Details</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="dimensions-tab" data-bs-toggle="tab" data-bs-target="#dimensions" type="button" role="tab" aria-controls="dimensions" aria-selected="false">Dimensions</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content p-4 border border-top-0 rounded-bottom" id="productTabsContent">
+                        <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Arcu vitae elementum curabitur vitae. Pellentesque sit amet porttitor eget dolor morbi non arcu. Elementum facilisis leo vel fringilla est ullamcorper eget nulla facilisi. Pharetra pharetra massa massa ultricies mi quis hendrerit dolor. Tempus imperdiet nulla malesuada pellentesque elit eget gravida cum sociis. Proin libero nunc consequat interdum. Metus vulputate eu scelerisque felis imperdiet. Convallis a cras semper auctor. Ipsum consequat nisl vel pretium lectus. Auctor elit sed vulputate mi sit amet mauris commodo quis. Magna fringilla urna porttitor rhoncus dolor purus non enim. Placerat vestibulum lectus mauris ultrices eros in cursus turpis massa. Diam volutpat commodo sed egestas egestas fringilla phasellus.</p>
+                        </div>
+                        <div class="tab-pane fade" id="details" role="tabpanel" aria-labelledby="details-tab">
+                            <ul>
+                                <li>Material: Velvet</li>
+                                <li>Frame: Solid wood</li>
+                                <li>Cushion filling: High-density foam</li>
+                                <li>Assembly required: Yes</li>
+                                <li>Care instructions: Spot clean only</li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade" id="dimensions" role="tabpanel" aria-labelledby="dimensions-tab">
+                            <ul>
+                                <li>Width: 180 cm</li>
+                                <li>Depth: 85 cm</li>
+                                <li>Height: 90 cm</li>
+                                <li>Seat height: 45 cm</li>
+                                <li>Weight: 45 kg</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Related Products -->
+            <div class="related-products mt-5">
+                <h3 class="mb-4">Related Products</h3>
+                <div class="row">
+                    <div class="col-md-3 mb-4">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://via.placeholder.com/300x300" alt="Related Product 1" class="img-fluid">
+                            </div>
+                            <div class="product-info">
+                                <h4>Blue armchair</h4>
+                                <p class="price">$199</p>
+                                <button class="btn btn-primary w-100 add-to-cart" data-id="202" data-name="Blue armchair" data-price="199" data-image="https://via.placeholder.com/300x300">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://via.placeholder.com/300x300" alt="Related Product 2" class="img-fluid">
+                            </div>
+                            <div class="product-info">
+                                <h4>Coffee table</h4>
+                                <p class="price">$149</p>
+                                <button class="btn btn-primary w-100 add-to-cart" data-id="203" data-name="Coffee table" data-price="149" data-image="https://via.placeholder.com/300x300">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://via.placeholder.com/300x300" alt="Related Product 3" class="img-fluid">
+                            </div>
+                            <div class="product-info">
+                                <h4>Floor lamp</h4>
+                                <p class="price">$89</p>
+                                <button class="btn btn-primary w-100 add-to-cart" data-id="204" data-name="Floor lamp" data-price="89" data-image="https://via.placeholder.com/300x300">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://via.placeholder.com/300x300" alt="Related Product 4" class="img-fluid">
+                            </div>
+                            <div class="product-info">
+                                <h4>Decorative cushion</h4>
+                                <p class="price">$29</p>
+                                <button class="btn btn-primary w-100 add-to-cart" data-id="205" data-name="Decorative cushion" data-price="29" data-image="https://via.placeholder.com/300x300">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-5 pb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <h3 class="mb-4">IdealUy.uz</h3>
+                    <p><i class="fas fa-phone-alt me-2"></i> +998917919999</p>
+                    <p><i class="fas fa-phone-alt me-2"></i> +998917111111</p>
+                    <p><i class="fas fa-envelope me-2"></i> jonibektoirov@gmail.com</p>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5 class="mb-4">Xaridga oid</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white">Shaxsiy kabinet</a></li>
+                        <li class="mb-2"><a href="#" class="text-white">Sizning xaridlaringiz</a></li>
+                        <li class="mb-2"><a href="#" class="text-white">Taqqoslangan buyumlar</a></li>
+                        <li class="mb-2"><a href="#" class="text-white">Istaklar roʻyxati buyumlari</a></li>
+                        <li class="mb-2"><a href="#" class="text-white">Yetkazib berish detali</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5 class="mb-4">Havolalar</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white">Yangiliklar</a></li>
+                        <li class="mb-2"><a href="#" class="text-white">Sovg'alar markazi</a></li>
+                        <li class="mb-2"><a href="#" class="text-white">Sotib olish bo'yicha qo'llanmalar</a></li>
+                        <li class="mb-2"><a href="#" class="text-white">Yangi mijozlarga oid</a></li>
+                        <li class="mb-2"><a href="#" class="text-white">Tozalash</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5 class="mb-4">FROM THE BLOG</h5>
+                    <div class="mb-3">
+                        <p class="mb-1">Bayram uchun ko'plab chegirmalar e'lon qilindi</p>
+                        <p class="small text-muted">14 Jan</p>
+                    </div>
+                    <div class="mb-3">
+                        <p class="mb-1">Ko'plab mahsulotlar xolati yangilandi va qo'shimcha xususiyatlar qo'shildi</p>
+                        <p class="small text-muted">27 Dec</p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-top border-secondary pt-3 mt-3">
+                <p class="text-center">IdealUy.uz 2024-2025 © – Barcha xuquqlar ximoyalangan</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Savat</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="cartItems">
+                        <!-- Cart items will be displayed here -->
+                    </div>
+                    <div class="text-end mt-3">
+                        <h5>Jami: <span id="cartTotal">0</span> so'm</h5>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Davom etish</button>
+                    <a href="cart.html" class="btn btn-primary">Buyurtma berish</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>
