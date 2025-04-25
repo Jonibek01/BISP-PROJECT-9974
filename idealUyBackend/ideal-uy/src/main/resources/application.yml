@@ -1,0 +1,40 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /api/ideal-uy
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/ideal_uy
+    username: postgres
+    password: root123
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        hbm2ddl:
+          auto: none
+  main:
+    allow-bean-definition-overriding: true
+
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui
+    groups-order: asc
+    operations-sorter: alpha
+    try-it-out-enabled: true
+    tags-sorter: alpha
+    display-request-duration: true
+    doc-expansion: "none"
+  api-docs:
+    path: /docs
+
+app:
+  image:
+    url: http://localhost:${server.port}/api/ideal-uy/products/image/
+  security:
+    jwt:
+      secret-key: 7234753778214125442A472D4B6150645367566B59703273357638792F423F45
+      expiration: 86400000 # a day

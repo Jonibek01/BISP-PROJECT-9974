@@ -1,0 +1,34 @@
+/* Toast Notification */
+.toast-notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #0d6efd;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.toast-notification.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toast-notification.error {
+  background-color: #dc3545;
+}
+
+.toast-notification.warning {
+  background-color: #ffc107;
+  color: #212529;
+}
+
+.toast-notification.info {
+  background-color: #0dcaf0;
+}
+
