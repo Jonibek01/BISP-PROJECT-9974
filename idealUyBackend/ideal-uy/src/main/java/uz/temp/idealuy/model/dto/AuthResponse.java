@@ -1,6 +1,5 @@
 package uz.temp.idealuy.model.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,7 +16,6 @@ public class AuthResponse {
     private String firstName;
     private String lastName;
     private String email;
-    private String phone;
 
 }
 

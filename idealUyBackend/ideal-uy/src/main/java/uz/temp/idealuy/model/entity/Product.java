@@ -21,11 +21,11 @@ public class Product {
     @Id
     @GeneratedValue
     private Integer id;
-    @Column(name = "name")
+    @Column(columnDefinition = "name")
     private String name;
-    @Column(name = "description")
+    @Column(columnDefinition = "description")
     private String description;
-    @Column(name = "price")
+    @Column(columnDefinition = "price")
     private Long price;
     @Column(name = "original_price")
     private Long originalPrice;
@@ -46,12 +46,5 @@ public class Product {
     private String image;
 
     public Product() {
-    }
-
-    public Product(Integer id, String name, String description, Long price) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.price = price;
     }
 }

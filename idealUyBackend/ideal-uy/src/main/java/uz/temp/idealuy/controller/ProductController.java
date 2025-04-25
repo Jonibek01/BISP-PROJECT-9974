@@ -1,12 +1,12 @@
 package uz.temp.idealuy.controller;
 
+import io.swagger.v3.oas.annotations.Parameter;
 import org.apache.coyote.BadRequestException;
 import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import uz.temp.idealuy.model.entity.Product;
 import uz.temp.idealuy.model.response.ProductResponse;
 import uz.temp.idealuy.service.ProductService;
@@ -43,6 +43,13 @@ public class ProductController {
         return ResponseEntity.ok(productService.getProductBySimilarProductId(similarPGId));
     }
 
+    @GetMapping("/similar/product/{product_id}")
+    public ResponseEntity<List<Product> > getProductBySimilarProductId(
+            @PathVariable(name = "product_id") Long productId
+    ) {
+        return ResponseEntity.ok(productService.getProductByProductId(productId));
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<ProductResponse> getProduct(@PathVariable Long id) throws BadRequestException {
         return ResponseEntity.ok(productService.getProductById(id));
@@ -53,6 +60,33 @@ public class ProductController {
             @PathVariable("id") Long id) {
         var response = productService.getProductImage(id);
         return ResponseEntity.ok().contentType(response.getContentType()).body(response.getInputStreamResource());
+    }
+
+    @PostMapping(value = "/image", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<Boolean> addProductImage(
+            @RequestParam @Parameter(description = "max 1 mb") MultipartFile image,
+            @RequestParam("product_id") Long productId,
+            @RequestParam(value = "main") Boolean main
+    ) throws BadRequestException {
+        var res = productService.addProductImage(image, productId, main);
+        return ResponseEntity.ok(res);
+    }
+
+    @PutMapping("/image/main")
+    public ResponseEntity<Boolean> updateProductImage(
+            @RequestParam(name = "image_id") Long imageId,
+            @RequestParam(name = "product_id") Long productId
+    ) throws BadRequestException {
+        var res = productService.updateProductMainImage(imageId, productId);
+        return ResponseEntity.ok(res);
+    }
+
+    @DeleteMapping("/image/{id}")
+    public ResponseEntity<Boolean> deleteProductImage(
+            @PathVariable(name = "id") Long imageId
+    ) throws BadRequestException {
+        var res = productService.deleteProductImage(imageId);
+        return ResponseEntity.ok(res);
     }
 
 }

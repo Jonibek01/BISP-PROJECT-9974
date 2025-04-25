@@ -2,8 +2,6 @@ package uz.temp.idealuy.service;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -20,10 +18,8 @@ import uz.temp.idealuy.model.entity.User;
 import uz.temp.idealuy.repository.TokenRepository;
 import uz.temp.idealuy.repository.UserRepository;
 
-import java.util.List;
-
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class AuthService {
 
     private final PasswordEncoder passwordEncoder;
@@ -31,6 +27,7 @@ public class AuthService {
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
     private final TokenRepository tokenRepository;
+
 
     public AuthResponse login(LoginDto dto) {
         authenticationManager.authenticate(
@@ -51,7 +48,6 @@ public class AuthService {
                 .firstName(user.getUsername())
                 .lastName(user.getUsername())
                 .email(user.getUsername())
-                .phone(user.getPhoneNumber())
                 .build();
     }
 
@@ -66,10 +62,9 @@ public class AuthService {
             return AuthResponse.builder()
                     .token(token)
                     .userId(user.getId())
-                    .firstName(user.getFirstName())
-                    .lastName(user.getLastName())
-                    .email(user.getEmail())
-                    .phone(user.getPhoneNumber())
+                    .firstName(user.getUsername())
+                    .lastName(user.getUsername())
+                    .email(user.getUsername())
                     .build();
         }
         throw new Exception("User profile not found");
@@ -79,10 +74,6 @@ public class AuthService {
         var user = User.builder()
                 .username(dto.getUsername())
                 .password(passwordEncoder.encode(dto.getPassword()))
-                .email(dto.getEmail())
-                .firstName(dto.getFirstName())
-                .lastName(dto.getLastName())
-                .phoneNumber(dto.getPhoneNumber())
                 .build();
         userRepository.save(user);
 
@@ -91,10 +82,9 @@ public class AuthService {
         return AuthResponse.builder()
                 .token(accessToken)
                 .userId(user.getId())
-                .firstName(user.getFirstName())
-                .lastName(user.getLastName())
-                .email(user.getEmail())
-                .phone(user.getPhoneNumber())
+                .firstName(user.getUsername())
+                .lastName(user.getUsername())
+                .email(user.getUsername())
                 .build();
     }
 
@@ -109,7 +99,7 @@ public class AuthService {
     }
 
     private void revokeAllUserTokens(User user) {
-        List<Token> validUserTokens = tokenRepository.findAllValidTokenByUser(user.getId());
+        var validUserTokens = tokenRepository.findAllValidTokenByUser(user.getId());
         if (validUserTokens.isEmpty()) {
             return;
         }
