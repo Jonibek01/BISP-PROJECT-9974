@@ -42,6 +42,10 @@ public class OpenApiConfiguration {
         localLocalServer.description("LocalHostbek");
         servers.add(localLocalServer);
 
+        Server localLocalServer2 = new Server();
+        localLocalServer2.url("http://134.122.29.170:" + port + contextPath);
+        localLocalServer2.description("Remote server");
+        servers.add(localLocalServer2);
         return servers;
     }
 

@@ -19,6 +19,7 @@ public class ApplicationConfig {
 
     private final UserRepository userRepository;
 
+    //spring security uchun
     @Bean
     public UserDetailsService userDetailsService() {
         return username -> userRepository.findByUsername(username)
@@ -38,6 +39,7 @@ public class ApplicationConfig {
         return configuration.getAuthenticationManager();
     }
 
+    //password kodlashtirib beradi
     @Bean
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();

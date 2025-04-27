@@ -1,4 +1,4 @@
-package uz.temp.idealuy.model.dto;
+package uz.temp.idealuy.model.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,11 +9,8 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class RegisterRequest {
+public class LoginRequest {
 
-    private String phoneNumber;
-    private String firstName;
-    private String lastName;
     private String username;
     private String password;
 

@@ -13,6 +13,7 @@ public class CorsConfiguration {
     private static final String DELETE = "DELETE";
     private static final String PUT = "PUT";
 
+    //server requestlani qabul qilishi uchun
     @Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {

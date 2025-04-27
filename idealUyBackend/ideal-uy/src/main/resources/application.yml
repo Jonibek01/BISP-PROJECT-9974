@@ -6,9 +6,9 @@ server:
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/ideal_uy
+    url: jdbc:postgresql://127.0.0.1:5432/ideal_uy_by_joni
     username: postgres
-    password: root123
+    password: password
   jpa:
     properties:
       hibernate:
@@ -33,7 +33,7 @@ springdoc:
 
 app:
   image:
-    url: http://localhost:${server.port}/api/ideal-uy/products/image/
+    url: http://134.122.29.170:${server.port}/api/ideal-uy/products/image/
   security:
     jwt:
       secret-key: 7234753778214125442A472D4B6150645367566B59703273357638792F423F45

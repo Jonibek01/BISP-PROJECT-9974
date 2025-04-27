@@ -29,6 +29,8 @@ public class User implements UserDetails {
     private String lastName;
     @Column(name = "email")
     private String email;
+    @Column(name = "phone_number")
+    private String phoneNumber;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

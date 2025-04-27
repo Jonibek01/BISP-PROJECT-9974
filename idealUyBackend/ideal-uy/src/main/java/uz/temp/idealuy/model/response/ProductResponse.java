@@ -16,7 +16,7 @@ import java.util.List;
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class ProductResponse {
 
-    private Integer id;
+    private Long id;
     private String name;
     private String description;
     private Long price;
@@ -30,7 +30,9 @@ public class ProductResponse {
         this.description = product.getDescription();
         this.price = product.getPrice();
         this.originalPrice = product.getOriginalPrice();
-        this.mainImage = imageUrl.concat(String.valueOf(product.getMainImageId()));
+        if (product.getMainImageId() != null) {
+            this.mainImage = imageUrl.concat(String.valueOf(product.getMainImageId()));
+        }
         this.thumbnails = images
                 .stream()
                 .map(image -> imageUrl.concat(String.valueOf(image.getId())))

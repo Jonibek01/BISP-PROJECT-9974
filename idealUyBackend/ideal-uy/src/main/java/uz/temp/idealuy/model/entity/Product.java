@@ -4,10 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 @Getter
 @Setter
@@ -19,8 +16,8 @@ import lombok.ToString;
 public class Product {
 
     @Id
-    @GeneratedValue
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @Column(columnDefinition = "name")
     private String name;
     @Column(columnDefinition = "description")
@@ -46,5 +43,13 @@ public class Product {
     private String image;
 
     public Product() {
+    }
+
+    public Product(String name, String description, Long price, Long originalPrice, Category category) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.originalPrice = originalPrice;
+        this.category = category;
     }
 }

@@ -21,6 +21,7 @@ public class SecurityConfig {
     private final JwtAuthenticationFilter jwtFilter;
     private final AuthenticationProvider authenticationProvider;
 
+    //jwt token talab qilinmaydigan, spring security tekshirmaydigan ochiq apilar list
     private final String[] permittedUrls = {
             "/auth/**",
             "/**",

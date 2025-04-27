@@ -1,13 +1,10 @@
 package uz.temp.idealuy.service;
 
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpHeaders;
+import org.apache.coyote.BadRequestException;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import uz.temp.idealuy.model.dto.AuthResponse;
@@ -25,29 +22,25 @@ public class AuthService {
     private final PasswordEncoder passwordEncoder;
     private final UserRepository userRepository;
     private final JwtService jwtService;
-    private final AuthenticationManager authenticationManager;
     private final TokenRepository tokenRepository;
 
 
-    public AuthResponse login(LoginDto dto) {
-        authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(
-                        dto.getUsername(),
-                        dto.getPassword()
-                )
-        );
+    public AuthResponse login(LoginDto dto) throws BadRequestException {
+        var userOptional = userRepository.findByUsername(dto.getUsername());
 
-        var user = userRepository.findByUsername(dto.getUsername())
-                .orElseThrow();
+        if (userOptional.isEmpty()) throw new BadRequestException("Bad credentials");
+        User user = userOptional.get();
+
         var accessToken = jwtService.generateToken(user);
         revokeAllUserTokens(user);
         saveUserToken(user, accessToken);
         return AuthResponse.builder()
                 .token(accessToken)
                 .userId(user.getId())
-                .firstName(user.getUsername())
-                .lastName(user.getUsername())
-                .email(user.getUsername())
+                .firstName(user.getFirstName())
+                .lastName(user.getLastName())
+                .email(user.getEmail())
+                .phoneNumber(user.getPhoneNumber())
                 .build();
     }
 
@@ -62,9 +55,10 @@ public class AuthService {
             return AuthResponse.builder()
                     .token(token)
                     .userId(user.getId())
-                    .firstName(user.getUsername())
-                    .lastName(user.getUsername())
-                    .email(user.getUsername())
+                    .firstName(user.getFirstName())
+                    .lastName(user.getLastName())
+                    .email(user.getEmail())
+                    .phoneNumber(user.getPhoneNumber())
                     .build();
         }
         throw new Exception("User profile not found");
@@ -73,7 +67,10 @@ public class AuthService {
     public AuthResponse register(RegisterRequest dto) {
         var user = User.builder()
                 .username(dto.getUsername())
+                .firstName(dto.getFirstName())
+                .lastName(dto.getLastName())
                 .password(passwordEncoder.encode(dto.getPassword()))
+                .phoneNumber(dto.getPhoneNumber())
                 .build();
         userRepository.save(user);
 
@@ -82,9 +79,10 @@ public class AuthService {
         return AuthResponse.builder()
                 .token(accessToken)
                 .userId(user.getId())
-                .firstName(user.getUsername())
-                .lastName(user.getUsername())
-                .email(user.getUsername())
+                .firstName(user.getFirstName())
+                .lastName(user.getLastName())
+                .email(user.getEmail())
+                .phoneNumber(user.getPhoneNumber())
                 .build();
     }
 
@@ -108,36 +106,6 @@ public class AuthService {
             token.setRevoked(true);
         });
         tokenRepository.saveAll(validUserTokens);
-    }
-
-    public AuthResponse refreshToken(HttpServletRequest request, HttpServletResponse response) {
-        final String authHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
-        final String refreshToken;
-        final String userEmail;
-        if (authHeader == null || !authHeader.startsWith("Bearer ")) {
-            throw new BadCredentialsException("bad credentials");
-        }
-
-        refreshToken = authHeader.substring(7);
-        userEmail = jwtService.extractUsername(refreshToken);
-
-        if (userEmail != null) {
-            var user = userRepository.findByUsername(userEmail)
-                    .orElseThrow();
-            if (jwtService.isTokenValid(refreshToken, user)) {
-                var accessToken = jwtService.generateToken(user);
-                revokeAllUserTokens(user);
-                saveUserToken(user, accessToken);
-                return AuthResponse.builder()
-                        .token(accessToken)
-                        .userId(user.getId())
-                        .firstName(user.getUsername())
-                        .lastName(user.getUsername())
-                        .email(user.getUsername())
-                        .build();
-            }
-        }
-        throw new UsernameNotFoundException("user not found");
     }
 
 }
