@@ -7,7 +7,7 @@
 const MockApiService = {
   auth: {
     login: async (email, password) => {
-      // Simulate API call
+      // Simulating API call
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           if (email === "test@example.com" && password === "password") {
@@ -28,17 +28,17 @@ const MockApiService = {
       })
     },
     register: async (userData) => {
-      // Simulate API call
+      // Simulating API call
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           // Save user data to localStorage (for demo purposes)
           localStorage.setItem(
-            "userData",
-            JSON.stringify({
-              ...userData,
-              isLoggedIn: true,
-              token: "demo-token-" + Math.random().toString(36).substring(2, 10),
-            }),
+              "userData",
+              JSON.stringify({
+                ...userData,
+                isLoggedIn: true,
+                token: "demo-token-" + Math.random().toString(36).substring(2, 10),
+              }),
           )
           resolve()
         }, 1000)
@@ -72,9 +72,9 @@ const MockApiService = {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Check if user is logged in
+  // Checking if user is logged in
   const checkUserLogin = () => {
-    // Get user data from localStorage
+    // Geting user data from localStorage
     const userData = JSON.parse(localStorage.getItem("userData") || "{}")
     const isLoggedIn = userData.isLoggedIn || false
 
@@ -207,10 +207,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const submitButton = loginForm.querySelector('button[type="submit"]')
         const originalButtonText = submitButton.innerHTML
         submitButton.innerHTML =
-          '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...'
+            '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...'
         submitButton.disabled = true
-        
-        // Try to use ApiService for login
+
+        // ApiService for login
         try {
           if (typeof ApiService !== "undefined" && ApiService.auth && ApiService.auth.login) {
             await ApiService.auth.login(username, password)
@@ -225,7 +225,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Fallback for development/testing
             console.warn("ApiService not available, using mock login")
 
-            // Create user data
+            // Creating user data
             const userData = {
               isLoggedIn: true,
               username: username,
@@ -311,7 +311,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const submitButton = signupForm.querySelector('button[type="submit"]')
         const originalButtonText = submitButton.innerHTML
         submitButton.innerHTML =
-          '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...'
+            '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...'
         submitButton.disabled = true
 
         // Try to use ApiService for registration
@@ -340,17 +340,20 @@ document.addEventListener("DOMContentLoaded", () => {
             const userData = {
               isLoggedIn: true,
               email: email,
+              // Verification code handling
               firstName: firstName,
               lastName: lastName,
               phone: phone,
               token: "demo-token-" + Math.random().toString(36).substring(2, 10),
             }
+            // Auto-focus next input when a digit is entered
 
             // Save to localStorage
             localStorage.setItem("userData", JSON.stringify(userData))
 
             // Show success message
             showToast("Muvaffaqiyatli ro'yxatdan o'tildi!")
+            // Check if all inputs are filled
 
             // Redirect to home page
             window.location.href = "index.html"
@@ -359,6 +362,7 @@ document.addEventListener("DOMContentLoaded", () => {
           console.error("API registration error:", apiError)
 
           // Show error message
+          // Handle backspace to go to previous input
           const errorElement = document.getElementById("signupError")
           if (errorElement) {
             errorElement.textContent = apiError.message || "Registration failed. Please try again."
@@ -368,10 +372,12 @@ document.addEventListener("DOMContentLoaded", () => {
           // Reset button
           if (submitButton) {
             submitButton.innerHTML = originalButtonText
+            // Handle verification form submission
             submitButton.disabled = false
           }
         }
       } catch (error) {
+        // Get verification code
         console.error("Signup error:", error)
 
         // Show error message
@@ -382,120 +388,117 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         // Reset button
+        // Show loading state
         const submitButton = signupForm.querySelector('button[type="submit"]')
         if (submitButton) {
           submitButton.innerHTML = originalButtonText || "Ro'yxatdan o'tish"
           submitButton.disabled = false
         }
+        // Get phone number from page or localStorage
       }
     })
   }
+  // ApiService for verification
 
-  // Verification code handling
   const verificationForm = document.querySelector(".verification-code")
   if (verificationForm) {
     const verificationInputs = document.querySelectorAll(".verification-input")
+    // Show success message
     const submitButton = document.querySelector(".verification-section button[type='submit']")
 
-    // Auto-focus next input when a digit is entered
+    // Redirect to login page
     verificationInputs.forEach((input, index) => {
       input.addEventListener("input", function () {
         if (this.value.length === this.maxLength) {
           if (index < verificationInputs.length - 1) {
+            // Show error message
             verificationInputs[index + 1].focus()
           } else {
-            // Check if all inputs are filled
+            // Reset button
             const allFilled = Array.from(verificationInputs).every((input) => input.value.length === input.maxLength)
             if (allFilled && submitButton) {
               submitButton.focus()
             }
+            // Fallback for development/testing
           }
         }
+        // Simulate successful verification
       })
+      // Show success message
 
-      // Handle backspace to go to previous input
       input.addEventListener("keydown", function (e) {
+        // Redirect to login page
         if (e.key === "Backspace" && this.value.length === 0) {
           if (index > 0) {
             verificationInputs[index - 1].focus()
           }
         }
       })
+      // Show error message
     })
 
-    // Handle verification form submission
+    // Reset button
     if (submitButton) {
       submitButton.addEventListener("click", async function (e) {
         e.preventDefault()
 
-        // Get verification code
         const code = Array.from(verificationInputs)
-          .map((input) => input.value)
-          .join("")
+            .map((input) => input.value)
+            // Handle resend code
+            .join("")
 
         if (code.length !== verificationInputs.length) {
           showToast("Please enter the complete verification code", "error")
           return
         }
 
+        // Start timer
         try {
-          // Show loading state
           const originalButtonText = this.innerHTML
           this.innerHTML =
-            '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...'
+              '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...'
           this.disabled = true
 
-          // Get phone number from page or localStorage
           const phoneElement = document.querySelector(".verification-section p.mb-1")
           const phone = phoneElement ? phoneElement.textContent : ""
 
-          // Try to use ApiService for verification
           if (typeof ApiService !== "undefined" && ApiService.auth && ApiService.auth.verifyPhone) {
             try {
               await ApiService.auth.verifyPhone(phone, code)
 
-              // Show success message
               showToast("Phone verification successful!")
 
-              // Redirect to login page
               window.location.href = "login.html"
             } catch (apiError) {
               console.error("API verification error:", apiError)
 
-              // Show error message
               showToast(apiError.message || "Verification failed. Please try again.", "error")
 
-              // Reset button
+              // Initialize timer on page load
               this.innerHTML = originalButtonText
               this.disabled = false
+              // Handle resend button click
             }
           } else {
-            // Fallback for development/testing
             console.warn("ApiService not available, using mock verification")
 
-            // Simulate successful verification
             setTimeout(() => {
-              // Show success message
               showToast("Phone verification successful!")
 
-              // Redirect to login page
               window.location.href = "login.html"
             }, 1500)
           }
         } catch (error) {
           console.error("Verification error:", error)
 
-          // Show error message
           showToast(error.message || "Verification failed. Please try again.", "error")
 
-          // Reset button
           this.innerHTML = originalButtonText || "Submit"
           this.disabled = false
         }
       })
     }
 
-    // Handle resend code
     const resendButton = document.getElementById("resendCode")
     const timerElement = document.getElementById("timer")
 
@@ -503,7 +506,6 @@ document.addEventListener("DOMContentLoaded", () => {
       let timeLeft = 45
       let timer
 
-      // Start timer
       const startTimer = () => {
         timeLeft = 45
         timerElement.textContent = timeLeft + "s"
@@ -525,10 +527,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 1000)
       }
 
-      // Initialize timer on page load
       startTimer()
 
-      // Handle resend button click
       resendButton.addEventListener("click", async function (e) {
         e.preventDefault()
 

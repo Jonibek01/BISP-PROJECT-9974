@@ -4,15 +4,15 @@
  */
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Initialize checkout page
+  // Initializing checkout page
   const initCheckoutPage = () => {
     const checkoutForm = document.getElementById("checkoutForm")
     if (!checkoutForm) return
 
-    // Load cart items for checkout
+    // Loading cart items for checkout
     loadCartForCheckout()
 
-    // Handle shipping method selection
+    // Handling shipping method selection
     const shippingMethods = document.querySelectorAll('input[name="shippingMethod"]')
     shippingMethods.forEach((method) => {
       method.addEventListener("change", () => {
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
       })
     })
 
-    // Handle payment method selection
+    // Handling payment method selection
     const paymentMethods = document.querySelectorAll('input[name="paymentMethod"]')
     paymentMethods.forEach((method) => {
       method.addEventListener("change", function () {
@@ -44,11 +44,11 @@ document.addEventListener("DOMContentLoaded", () => {
       })
     })
 
-    // Handle checkout form submission
+    // Handling checkout form submission
     checkoutForm.addEventListener("submit", async (e) => {
       e.preventDefault()
 
-      // Get form data
+      // Getting form data
       const formData = new FormData(checkoutForm)
       const orderData = {
         shippingAddress: {
@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const submitButton = checkoutForm.querySelector('button[type="submit"]')
         const originalButtonText = submitButton.innerHTML
         submitButton.innerHTML =
-          '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...'
+            '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...'
         submitButton.disabled = true
 
         // Create order
@@ -139,11 +139,11 @@ document.addEventListener("DOMContentLoaded", () => {
       let subtotal = 0
 
       if (
-        typeof ApiService !== "undefined" &&
-        ApiService.auth &&
-        ApiService.auth.isLoggedIn() &&
-        ApiService.cart &&
-        ApiService.cart.getItems
+          typeof ApiService !== "undefined" &&
+          ApiService.auth &&
+          ApiService.auth.isLoggedIn() &&
+          ApiService.cart &&
+          ApiService.cart.getItems
       ) {
         // User is logged in, get cart from server
         try {
@@ -257,7 +257,7 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       // Show loading state
       orderDetailsContainer.innerHTML =
-        '<div class="text-center py-4"><div class="spinner-border text-primary" role="status"></div></div>'
+          '<div class="text-center py-4"><div class="spinner-border text-primary" role="status"></div></div>'
 
       // Get order details
       let order = null
@@ -308,8 +308,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 </thead>
                 <tbody>
                   ${order.items
-                    .map(
-                      (item) => `
+          .map(
+              (item) => `
                     <tr>
                       <td>
                         <div class="d-flex align-items-center">
@@ -322,8 +322,8 @@ document.addEventListener("DOMContentLoaded", () => {
                       <td>${(item.price * item.quantity).toLocaleString()} so'm</td>
                     </tr>
                   `,
-                    )
-                    .join("")}
+          )
+          .join("")}
                 </tbody>
                 <tfoot>
                   <tr>

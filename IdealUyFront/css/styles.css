@@ -2,503 +2,503 @@
 
 /* Global Styles */
 body {
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    color: #333;
-  }
-  
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-  
-  a:hover {
-    text-decoration: none;
-  }
-  
-  /* Header Styles */
-  .top-bar {
-    font-size: 14px;
-  }
-  
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* Header Styles */
+.top-bar {
+  font-size: 14px;
+}
+
+.navbar-brand h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #0d6efd;
+}
+
+.navbar-nav .nav-link {
+  white-space: nowrap;
+  text-transform: uppercase;
+  font-size: 14px;
+  padding: 8px 12px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #0d6efd;
+}
+
+.navbar-nav .nav-link.active {
+  color: #0d6efd;
+  font-weight: 600;
+}
+
+/* Search Box - Fix for half blue/half white icon */
+.search-box {
+  position: relative;
+  max-width: 400px;
+  width: 100%;
+  margin-right: 15px;
+}
+
+.search-box input {
+  border-radius: 50px;
+  padding-right: 50px;
+  height: 38px;
+}
+
+.search-box button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-radius: 0 50px 50px 0;
+  height: 100%;
+  background-color: #0d6efd;
+  color: white;
+  border: 1px solid #0d6efd;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-box button i {
+  color: white !important; /* Force icon to be white */
+}
+
+/* Fix for search icon in different layouts */
+.search-box .btn {
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-box .btn i {
+  color: white; /* Ensure icon is white */
+}
+
+/* Cart Icon - Fix for out of bounds issue */
+.navbar .position-relative {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.navbar .position-relative .badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  font-size: 0.65rem;
+  padding: 0.25em 0.6em;
+}
+
+/* Alternative cart icon styling for top navigation */
+.nav-item .bi-cart3,
+.nav-item .fa-shopping-cart {
+  font-size: 1.2rem;
+  position: relative;
+}
+
+.nav-item .badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 0.65rem;
+  padding: 0.25em 0.6em;
+}
+
+/* Hero Section */
+.hero-section {
+  padding: 40px 0;
+  background-color: #f8f9fa;
+}
+
+.hero-section .carousel-item {
+  padding: 20px 0;
+}
+
+.hero-section h2 {
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* Product Cards */
+.product-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #dee2e6;
+  border-radius: 0.25rem;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #fff;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.product-image {
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: #f8f9fa;
+}
+
+.product-image img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.product-info {
+  padding: 1.25rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-info h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  height: 2.5rem;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.product-info .price {
+  font-weight: bold;
+  color: #0d6efd;
+  margin-bottom: 1rem;
+}
+
+.product-info .original-price {
+  font-size: 0.9rem;
+}
+
+.product-info .savings {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+/* Kitchen Items and Cleaning Items */
+.kitchen-item,
+.cleaning-item {
+  height: 100%;
+  padding: 15px;
+  border-radius: 0.25rem;
+  background-color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.kitchen-item:hover,
+.cleaning-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.kitchen-item img,
+.cleaning-item img {
+  height: 150px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.kitchen-item h5,
+.cleaning-item h5 {
+  font-size: 1rem;
+  height: 2.5rem;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* Category Sidebar */
+.list-group-item {
+  transition: background-color 0.2s ease, color 0.2s ease;
+  border-left: 3px solid transparent;
+}
+
+.list-group-item:hover {
+  background-color: #f8f9fa;
+  border-left-color: #0d6efd;
+}
+
+.list-group-item.active {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+
+.list-group-item.active .category-link {
+  color: #ffffff !important;
+  font-weight: bold;
+}
+
+.category-link {
+  display: block;
+  color: #212529;
+  text-decoration: none;
+  padding: 8px 0;
+  transition: color 0.2s ease;
+}
+
+.category-link:hover {
+  color: #0d6efd;
+}
+
+/* Blog Section */
+.blog-card {
+  display: flex;
+  background-color: #fff;
+  border-radius: 0.25rem;
+  overflow: hidden;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.blog-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #0d6efd;
+  color: #fff;
+  padding: 10px 15px;
+  min-width: 70px;
+}
+
+.blog-date .day {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.blog-date .month {
+  font-size: 0.9rem;
+}
+
+.blog-content {
+  padding: 15px;
+  flex-grow: 1;
+}
+
+.blog-content h4 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+  background-color: #212529;
+}
+
+footer h3,
+footer h5 {
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+footer p,
+footer .text-white {
+  color: #ffffff !important;
+}
+
+footer .text-muted {
+  color: #adb5bd !important;
+}
+
+footer a.text-white:hover,
+footer a.text-muted:hover {
+  color: #ffffff !important;
+  text-decoration: underline;
+}
+
+/* Cart Page */
+.cart-item-image {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.quantity-selector .form-control {
+  width: 60px;
+}
+
+/* Checkout Page */
+.form-check-label {
+  width: 100%;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 767.98px) {
   .navbar-brand h1 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #0d6efd;
-  }
-  
-  .navbar-nav .nav-link {
-    white-space: nowrap;
-    text-transform: uppercase;
-    font-size: 14px;
-    padding: 8px 12px;
-    font-weight: 500;
-    transition: color 0.3s ease;
-  }
-  
-  .navbar-nav .nav-link:hover {
-    color: #0d6efd;
-  }
-  
-  .navbar-nav .nav-link.active {
-    color: #0d6efd;
-    font-weight: 600;
-  }
-  
-  /* Search Box - Fix for half blue/half white icon */
-  .search-box {
-    position: relative;
-    max-width: 400px;
-    width: 100%;
-    margin-right: 15px;
-  }
-  
-  .search-box input {
-    border-radius: 50px;
-    padding-right: 50px;
-    height: 38px;
-  }
-  
-  .search-box button {
-    position: absolute;
-    right: 0;
-    top: 0;
-    border-radius: 0 50px 50px 0;
-    height: 100%;
-    background-color: #0d6efd;
-    color: white;
-    border: 1px solid #0d6efd;
-    width: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .search-box button i {
-    color: white !important; /* Force icon to be white */
-  }
-  
-  /* Fix for search icon in different layouts */
-  .search-box .btn {
-    width: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .search-box .btn i {
-    color: white; /* Ensure icon is white */
-  }
-  
-  /* Cart Icon - Fix for out of bounds issue */
-  .navbar .position-relative {
-    display: inline-block;
-    margin-right: 15px;
-  }
-  
-  .navbar .position-relative .badge {
-    position: absolute;
-    top: -8px;
-    right: -8px;
-    font-size: 0.65rem;
-    padding: 0.25em 0.6em;
-  }
-  
-  /* Alternative cart icon styling for top navigation */
-  .nav-item .bi-cart3,
-  .nav-item .fa-shopping-cart {
-    font-size: 1.2rem;
-    position: relative;
-  }
-  
-  .nav-item .badge {
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    font-size: 0.65rem;
-    padding: 0.25em 0.6em;
-  }
-  
-  /* Hero Section */
-  .hero-section {
-    padding: 40px 0;
-    background-color: #f8f9fa;
-  }
-  
-  .hero-section .carousel-item {
-    padding: 20px 0;
-  }
-  
-  .hero-section h2 {
-    font-weight: 700;
-    margin-bottom: 20px;
-  }
-  
-  /* Product Cards */
-  .product-card {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #dee2e6;
-    border-radius: 0.25rem;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background-color: #fff;
-  }
-  
-  .product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-  }
-  
-  .product-image {
-    position: relative;
-    height: 250px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    background-color: #f8f9fa;
-  }
-  
-  .product-image img {
-    max-height: 100%;
-    max-width: 100%;
-    object-fit: contain;
-    transition: transform 0.3s ease;
-  }
-  
-  .product-info {
-    padding: 1.25rem;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .product-info h3 {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-    height: 2.5rem;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-  }
-  
-  .product-info .price {
-    font-weight: bold;
-    color: #0d6efd;
-    margin-bottom: 1rem;
-  }
-  
-  .product-info .original-price {
-    font-size: 0.9rem;
-  }
-  
-  .product-info .savings {
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-  }
-  
-  /* Kitchen Items and Cleaning Items */
-  .kitchen-item,
-  .cleaning-item {
-    height: 100%;
-    padding: 15px;
-    border-radius: 0.25rem;
-    background-color: #fff;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .kitchen-item:hover,
-  .cleaning-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-  }
-  
-  .kitchen-item img,
-  .cleaning-item img {
-    height: 150px;
-    width: auto;
-    max-width: 100%;
-    object-fit: contain;
-    margin-bottom: 15px;
-  }
-  
-  .kitchen-item h5,
-  .cleaning-item h5 {
-    font-size: 1rem;
-    height: 2.5rem;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-  }
-  
-  /* Category Sidebar */
-  .list-group-item {
-    transition: background-color 0.2s ease, color 0.2s ease;
-    border-left: 3px solid transparent;
-  }
-  
-  .list-group-item:hover {
-    background-color: #f8f9fa;
-    border-left-color: #0d6efd;
-  }
-  
-  .list-group-item.active {
-    background-color: #0d6efd;
-    border-color: #0d6efd;
-  }
-  
-  .list-group-item.active .category-link {
-    color: #ffffff !important;
-    font-weight: bold;
-  }
-  
-  .category-link {
-    display: block;
-    color: #212529;
-    text-decoration: none;
-    padding: 8px 0;
-    transition: color 0.2s ease;
-  }
-  
-  .category-link:hover {
-    color: #0d6efd;
-  }
-  
-  /* Blog Section */
-  .blog-card {
-    display: flex;
-    background-color: #fff;
-    border-radius: 0.25rem;
-    overflow: hidden;
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-  }
-  
-  .blog-date {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #0d6efd;
-    color: #fff;
-    padding: 10px 15px;
-    min-width: 70px;
-  }
-  
-  .blog-date .day {
     font-size: 1.5rem;
-    font-weight: 700;
   }
-  
-  .blog-date .month {
-    font-size: 0.9rem;
+
+  .product-image {
+    height: 200px;
   }
-  
-  .blog-content {
-    padding: 15px;
-    flex-grow: 1;
+
+  .blog-card {
+    flex-direction: column;
   }
-  
-  .blog-content h4 {
-    font-size: 1.1rem;
+
+  .blog-date {
+    flex-direction: row;
+    min-width: auto;
+    padding: 5px 10px;
+  }
+
+  .blog-date .day {
+    font-size: 1.2rem;
+    margin-right: 5px;
+  }
+}
+
+/* Fix for dropdown menu visibility */
+.dropdown-menu {
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+}
+
+.dropdown-item {
+  color: #212529;
+  padding: 0.5rem 1.5rem;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  color: #16181b;
+  background-color: #f8f9fa;
+}
+
+/* Product Grid Styles */
+.product-item {
+  margin-bottom: 30px;
+}
+
+/* Fix for product images in product listing */
+.product-item .product-image {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-item .product-image img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* Fix for category hover in sidebar */
+.card-body .list-group-item {
+  padding: 0;
+  border: none;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.card-body .list-group-item:last-child {
+  border-bottom: none;
+}
+
+.card-body .list-group-item .category-link {
+  padding: 12px 15px;
+  display: block;
+  width: 100%;
+}
+
+.card-body .list-group-item.active {
+  background-color: #0d6efd;
+}
+
+.card-body .list-group-item.active .category-link {
+  color: #ffffff;
+}
+
+.card-body .list-group-item:hover:not(.active) {
+  background-color: #f8f9fa;
+}
+
+/* Fix for top navigation layout */
+.navbar-nav {
+  align-items: center;
+}
+
+/* Fix for product card heights */
+.row-cols-1 > * {
+  flex: 0 0 auto;
+  width: 100%;
+}
+
+.row-cols-md-3 > * {
+  flex: 0 0 auto;
+  width: 33.333333%;
+}
+
+.row-cols-lg-4 > * {
+  flex: 0 0 auto;
+  width: 25%;
+}
+
+/* Fix for kitchen items grid */
+.row-cols-2 > * {
+  flex: 0 0 auto;
+  width: 50%;
+}
+
+.row-cols-md-3 > * {
+  flex: 0 0 auto;
+  width: 33.333333%;
+}
+
+.row-cols-lg-6 > * {
+  flex: 0 0 auto;
+  width: 16.666667%;
+}
+
+/* Ensure proper spacing in the navbar */
+.navbar-nav .nav-item:last-child {
+  margin-right: 10px;
+}
+
+/* Ensure cart icon is properly contained */
+@media (max-width: 991.98px) {
+  .navbar .position-relative {
     margin-bottom: 10px;
   }
-  
-  /* Footer */
-  footer {
-    background-color: #212529;
-  }
-  
-  footer h3,
-  footer h5 {
-    color: #ffffff;
-    margin-bottom: 20px;
-  }
-  
-  footer p,
-  footer .text-white {
-    color: #ffffff !important;
-  }
-  
-  footer .text-muted {
-    color: #adb5bd !important;
-  }
-  
-  footer a.text-white:hover,
-  footer a.text-muted:hover {
-    color: #ffffff !important;
-    text-decoration: underline;
-  }
-  
-  /* Cart Page */
-  .cart-item-image {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
-  }
-  
-  .quantity-selector .form-control {
-    width: 60px;
-  }
-  
-  /* Checkout Page */
-  .form-check-label {
+
+  .search-box {
+    margin-bottom: 10px;
     width: 100%;
-  }
-  
-  /* Responsive Adjustments */
-  @media (max-width: 767.98px) {
-    .navbar-brand h1 {
-      font-size: 1.5rem;
-    }
-  
-    .product-image {
-      height: 200px;
-    }
-  
-    .blog-card {
-      flex-direction: column;
-    }
-  
-    .blog-date {
-      flex-direction: row;
-      min-width: auto;
-      padding: 5px 10px;
-    }
-  
-    .blog-date .day {
-      font-size: 1.2rem;
-      margin-right: 5px;
-    }
-  }
-  
-  /* Fix for dropdown menu visibility */
-  .dropdown-menu {
-    background-color: #ffffff;
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-    z-index: 1000;
-  }
-  
-  .dropdown-item {
-    color: #212529;
-    padding: 0.5rem 1.5rem;
-  }
-  
-  .dropdown-item:hover,
-  .dropdown-item:focus {
-    color: #16181b;
-    background-color: #f8f9fa;
-  }
-  
-  /* Product Grid Styles */
-  .product-item {
-    margin-bottom: 30px;
-  }
-  
-  /* Fix for product images in product listing */
-  .product-item .product-image {
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .product-item .product-image img {
-    max-height: 100%;
     max-width: 100%;
-    object-fit: contain;
   }
-  
-  /* Fix for category hover in sidebar */
-  .card-body .list-group-item {
-    padding: 0;
-    border: none;
-    border-bottom: 1px solid #dee2e6;
+
+  .d-flex.align-items-center {
+    flex-wrap: wrap;
   }
-  
-  .card-body .list-group-item:last-child {
-    border-bottom: none;
-  }
-  
-  .card-body .list-group-item .category-link {
-    padding: 12px 15px;
-    display: block;
-    width: 100%;
-  }
-  
-  .card-body .list-group-item.active {
-    background-color: #0d6efd;
-  }
-  
-  .card-body .list-group-item.active .category-link {
-    color: #ffffff;
-  }
-  
-  .card-body .list-group-item:hover:not(.active) {
-    background-color: #f8f9fa;
-  }
-  
-  /* Fix for top navigation layout */
-  .navbar-nav {
-    align-items: center;
-  }
-  
-  /* Fix for product card heights */
-  .row-cols-1 > * {
-    flex: 0 0 auto;
-    width: 100%;
-  }
-  
-  .row-cols-md-3 > * {
-    flex: 0 0 auto;
-    width: 33.333333%;
-  }
-  
-  .row-cols-lg-4 > * {
-    flex: 0 0 auto;
-    width: 25%;
-  }
-  
-  /* Fix for kitchen items grid */
-  .row-cols-2 > * {
-    flex: 0 0 auto;
-    width: 50%;
-  }
-  
-  .row-cols-md-3 > * {
-    flex: 0 0 auto;
-    width: 33.333333%;
-  }
-  
-  .row-cols-lg-6 > * {
-    flex: 0 0 auto;
-    width: 16.666667%;
-  }
-  
-  /* Ensure proper spacing in the navbar */
-  .navbar-nav .nav-item:last-child {
-    margin-right: 10px;
-  }
-  
-  /* Ensure cart icon is properly contained */
-  @media (max-width: 991.98px) {
-    .navbar .position-relative {
-      margin-bottom: 10px;
-    }
-  
-    .search-box {
-      margin-bottom: 10px;
-      width: 100%;
-      max-width: 100%;
-    }
-  
-    .d-flex.align-items-center {
-      flex-wrap: wrap;
-    }
-  }
+}
   
   

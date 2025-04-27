@@ -1,16 +1,16 @@
 /**
- * API Service for IdealUy.uz
- * Handles all communication with the backend API
+ * all communication with the backend API
  */
 
-// Updated Base API URL - change this to your actual production API endpoint
-// const API_BASE_URL = "https://api.idealuy.uz/api/v1"
-const API_BASE_URL = "http://localhost:8081/api/ideal-uy"
 
-// Helper function to handle API responses
+// const API_BASE_URL = "https://api.idealuy.uz/api/v1"
+// const API_BASE_URL = "http://134.122.29.170:8081/api/ideal-uy"
+const API_BASE_URL = "http://127.0.0.1:8081/api/ideal-uy"
+
+// Helper function to handling API responses
 const handleResponse = async (response) => {
   if (!response.ok) {
-    // Try to get error message from response
+    // Trying to get error message from response
     try {
       const errorData = await response.json()
       throw new Error(errorData.message || `API error: ${response.status}`)
@@ -22,7 +22,7 @@ const handleResponse = async (response) => {
   return response.json()
 }
 
-// Get auth token from localStorage
+// Geting auth token from localStorage
 const getAuthToken = () => {
   const userData = JSON.parse(localStorage.getItem("userData") || "{}")
   return userData.token
@@ -51,18 +51,8 @@ const ApiService = {
    * Product related API calls
    */
   products: {
-    // Get all products with optional filtering
+    // Geting all products with optional filtering
     getAll: async (filters = {}) => {
-      // const queryParams = new URLSearchParams()
-
-      // // Add filters to query params
-      // Object.keys(filters).forEach((key) => {
-      //   if (filters[key]) {
-      //     queryParams.append(key, filters[key])
-      //   }
-      // })
-
-      // const queryString = queryParams.toString() ? `?${queryParams.toString()}` : ""
 
       try {
         console.log(`Fetching products from: ${API_BASE_URL}/products/all`)
@@ -78,7 +68,7 @@ const ApiService = {
         return getMockProducts(filters)
       }
     },
-    
+
     // Get product list by category
     getProductByCategoryId: async (categoryId) => {
       try {
@@ -101,6 +91,22 @@ const ApiService = {
       try {
         console.log(`Fetching product list by similar groupd id: ${similarPGId}`)
         const response = await fetch(`${API_BASE_URL}/products/similar/${similarPGId}`, {
+          method: "GET",
+          headers: getHeaders(false),
+        })
+
+        return handleResponse(response)
+      } catch (error) {
+        console.error(`Error fetching product ${productId}:`, error)
+        // Return mock data for development if API is not available
+        return getMockProductById(productId)
+      }
+    },
+
+    getSimilarProductsById: async (productId) => {
+      try {
+        console.log(`Fetching similar product list by productId: ${productId}`)
+        const response = await fetch(`${API_BASE_URL}/products/similar/product/${productId}`, {
           method: "GET",
           headers: getHeaders(false),
         })
@@ -679,11 +685,11 @@ function getMockProducts(filters = {}) {
   const allProducts = [
     {
       id: "1",
-      name: "Elektron choynak",
+      name: "Elektron choynak2222",
       price: 120000,
       originalPrice: 150000,
       description:
-        "Zamonaviy elektron choynak suv qaynatish uchun eng qulay va tez usul. Energiya tejamkor va ishlatish oson.",
+          "Zamonaviy elektron choynak suv qaynatish uchun eng qulay va tez usul. Energiya tejamkor va ishlatish oson.",
       image: "images/products/Elektron choynak.png",
       category: "kitchen",
       brand: "Ideal",
@@ -698,7 +704,7 @@ function getMockProducts(filters = {}) {
       price: 300000,
       originalPrice: 350000,
       description:
-        "Yuqori sifatli kofe tayyorlash uchun mo'ljallangan apparat. Turli xil kofe turlarini tayyorlash imkoniyati.",
+          "Yuqori sifatli kofe tayyorlash uchun mo'ljallangan apparat. Turli xil kofe turlarini tayyorlash imkoniyati.",
       image: "images/products/Coffee Apparati.png",
       category: "kitchen",
       brand: "Ideal",
@@ -773,8 +779,8 @@ function getMockProducts(filters = {}) {
   if (filters.search) {
     const searchTerm = filters.search.toLowerCase()
     filteredProducts = filteredProducts.filter(
-      (product) =>
-        product.name.toLowerCase().includes(searchTerm) || product.description.toLowerCase().includes(searchTerm),
+        (product) =>
+            product.name.toLowerCase().includes(searchTerm) || product.description.toLowerCase().includes(searchTerm),
     )
   }
 

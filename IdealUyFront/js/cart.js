@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Initialize ApiService (replace with your actual implementation)
+  // Initializing ApiService
   const ApiService = window.ApiService || {
     auth: {
-      isLoggedIn: () => false, // Replace with actual authentication check
+      isLoggedIn: () => false,
     },
     cart: {
       getItems: async () => {
-        return { items: [] } // Replace with actual API call
+        return { items: [] }
       },
       addItem: async (productId, quantity) => {
         console.log(`Simulating adding item ${productId} with quantity ${quantity} to server cart`)
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   }
 
-  // Initialize cart from localStorage or API
+  // Initializing cart from localStorage or API
   let cart = []
   loadCart()
 
@@ -28,13 +28,13 @@ document.addEventListener("DOMContentLoaded", () => {
   async function loadCart() {
     try {
       if (
-        typeof ApiService !== "undefined" &&
-        ApiService.auth &&
-        ApiService.auth.isLoggedIn() &&
-        ApiService.cart &&
-        ApiService.cart.getItems
+          typeof ApiService !== "undefined" &&
+          ApiService.auth &&
+          ApiService.auth.isLoggedIn() &&
+          ApiService.cart &&
+          ApiService.cart.getItems
       ) {
-        // User is logged in, try to get cart from server
+        // User is logged in, trying to get cart from server
         try {
           const cartData = await ApiService.cart.getItems()
           cart = cartData.items || []
@@ -49,10 +49,10 @@ document.addEventListener("DOMContentLoaded", () => {
         cart = JSON.parse(localStorage.getItem("cart")) || []
       }
 
-      // Update cart count
+      // Updating cart count
       updateCartCount()
 
-      // Render cart items if on cart page
+      // Rendering cart items if on cart page
       const cartItemsList = document.getElementById("cartItemsList")
       if (cartItemsList) {
         renderCartItems()
@@ -81,11 +81,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
       try {
         if (
-          typeof ApiService !== "undefined" &&
-          ApiService.auth &&
-          ApiService.auth.isLoggedIn() &&
-          ApiService.cart &&
-          ApiService.cart.addItem
+            typeof ApiService !== "undefined" &&
+            ApiService.auth &&
+            ApiService.auth.isLoggedIn() &&
+            ApiService.cart &&
+            ApiService.cart.addItem
         ) {
           // User is logged in, add to server cart
           try {

@@ -3,20 +3,17 @@
  * Handles product data fetching and rendering
  */
 
-// Declare ApiService (assuming it's globally available or imported elsewhere)
-// If it's a module, you'd use: import ApiService from './api-service';
-// For this example, we'll assume it's globally available.
-// const ApiService = window.ApiService; // Example if ApiService is attached to the window object
+
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Initialize loading state
+  // Initializing loading state
   let isLoading = false
 
   // Function to show loading state
   const showLoading = (container) => {
     isLoading = true
 
-    // Create loading spinner
+    // Creating loading spinner
     const loadingSpinner = document.createElement("div")
     loadingSpinner.className = "text-center py-5"
     loadingSpinner.id = "loadingSpinner"
@@ -27,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <p class="mt-2">Mahsulotlar yuklanmoqda...</p>
     `
 
-    // Clear container and show spinner
+    // Clearing container and show spinner
     if (container) {
       container.innerHTML = ""
       container.appendChild(loadingSpinner)
@@ -38,14 +35,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const hideLoading = (container) => {
     isLoading = false
 
-    // Remove loading spinner
+    // Removing loading spinner
     const loadingSpinner = document.getElementById("loadingSpinner")
     if (loadingSpinner && container) {
       container.removeChild(loadingSpinner)
     }
   }
 
-  // Function to show error message
+  // Function to showing error message
   const showError = (container, message) => {
     const errorMessage = document.createElement("div")
     errorMessage.className = "alert alert-danger"
@@ -56,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Function to render product card
+  // Function to rendering product card
   const renderProductCard = (product) => {
     // Calculate discount and savings if original price exists
     const hasDiscount = product.original_price && product.original_price > product.price
@@ -123,16 +120,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const loadProducts = async (container) => {
     if (!container) return;
-  
+
     try {
       showLoading(container);
-  
+
       // Read category ID from URL
       const params = new URLSearchParams(window.location.search);
       const category = params.get("category");
-  
+
       let products = [];
-  
+
       if (typeof ApiService !== "undefined" && ApiService.products) {
         try {
           if (category && category !== "all" && ApiService.products.getProductByCategoryId) {
@@ -153,9 +150,9 @@ document.addEventListener("DOMContentLoaded", () => {
         console.warn("ApiService not available, no products loaded");
         products = [];
       }
-  
+
       hideLoading(container);
-      
+
       if (!products || products.length === 0) {
         const noProductsMessage = document.createElement("div")
         noProductsMessage.className = "col-12 text-center py-5"
@@ -177,7 +174,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const productCard = renderProductCard(product);
         container.appendChild(productCard);
       });
-  
+
       // Initialize cart buttons
       initAddToCartButtons();
     } catch (error) {
@@ -186,7 +183,7 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error("Error loading products:", error);
     }
   };
-  
+
 
   // Function to load categories
   const loadCategories = async (container) => {
@@ -313,15 +310,15 @@ document.addEventListener("DOMContentLoaded", () => {
           // Show loading state on button
           const originalButtonText = this.innerHTML // Store original button text
           this.innerHTML =
-            '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...'
+              '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...'
           this.disabled = true
 
           if (
-            typeof ApiService !== "undefined" &&
-            ApiService.auth &&
-            ApiService.auth.isLoggedIn() &&
-            ApiService.cart &&
-            ApiService.cart.addItem
+              typeof ApiService !== "undefined" &&
+              ApiService.auth &&
+              ApiService.auth.isLoggedIn() &&
+              ApiService.cart &&
+              ApiService.cart.addItem
           ) {
             // User is logged in, add to server cart
             try {
@@ -431,11 +428,11 @@ document.addEventListener("DOMContentLoaded", () => {
       let totalItems = 0
 
       if (
-        typeof ApiService !== "undefined" &&
-        ApiService.auth &&
-        ApiService.auth.isLoggedIn() &&
-        ApiService.cart &&
-        ApiService.cart.getItems
+          typeof ApiService !== "undefined" &&
+          ApiService.auth &&
+          ApiService.auth.isLoggedIn() &&
+          ApiService.cart &&
+          ApiService.cart.getItems
       ) {
         // User is logged in, get cart from server
         try {
@@ -571,18 +568,18 @@ document.addEventListener("DOMContentLoaded", () => {
               </div>
               <div class="thumbnails d-flex">
                 ${
-                  product.images
-                    ? product.images
-                        .map(
-                          (img) => `
+          product.images
+              ? product.images
+                  .map(
+                      (img) => `
                   <div class="thumbnail me-2 ${img === product.image ? "active" : ""}">
                     <img src="${img}" alt="${product.name}" class="img-fluid">
                   </div>
                 `,
-                        )
-                        .join("")
-                    : ""
-                }
+                  )
+                  .join("")
+              : ""
+      }
               </div>
             </div>
           </div>
@@ -613,10 +610,10 @@ document.addEventListener("DOMContentLoaded", () => {
             </button>
             
             ${
-              product.inStock
-                ? '<p class="text-success mt-2"><i class="bi bi-check-circle"></i> Sotuvda mavjud</p>'
-                : '<p class="text-danger mt-2"><i class="bi bi-x-circle"></i> Sotuvda mavjud emas</p>'
-            }
+          product.inStock
+              ? '<p class="text-success mt-2"><i class="bi bi-check-circle"></i> Sotuvda mavjud</p>'
+              : '<p class="text-danger mt-2"><i class="bi bi-x-circle"></i> Sotuvda mavjud emas</p>'
+      }
             
             <div class="product-features mt-4">
               <h5>Xususiyatlari:</h5>
